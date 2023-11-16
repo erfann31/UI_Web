@@ -1,0 +1,100 @@
+   body {
+            font-family: Arial, sans-serif;
+        }
+
+        #navigation {
+            margin-right: 0;
+            padding-right: 0;
+            background-color: brown;
+            text-align: right;
+        }
+
+
+        .nav {
+            margin-top: 0;
+            display: flex;
+            height: 40px;
+            margin-right: -40px;
+        }
+
+        .nav li {
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            color: white;
+            line-height: 2.5;
+            height: 40px;
+        }
+
+        .sub-menu li {
+            margin-right: -40px;
+            text-align: right;
+            line-height: 2;
+            height: 20px;
+            width: 150px;
+        }
+
+        .sub-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            margin-right: -10px;
+            background-color: #483112;
+        }
+
+        .nav li:hover {
+            color: black;
+            background-color: burlywood;
+        }
+
+        .nav li:hover .sub-menu {
+            display: block;
+        }
+
+        .sub-menu-item {
+            padding: 10px;
+            text-align: right;
+        }
+
+        .sub-menu-2 {
+            display: none;
+            position: absolute;
+            top: 0;
+            right: 100%;
+            background-color: #89673a;
+        }
+
+        .sub-menu-item:hover .sub-menu-2 {
+            display: block;
+        }
+
+        .sub-menu-item-2 {
+            padding: 10px;
+            text-align: right;
+        }
+
+
+        .search-icon {
+            cursor: pointer;
+            background-position: center;
+            background-image: url('search.png');
+            background-size: 40px;
+            background-repeat: no-repeat;
+            width: 30px;
+            padding-left: 30px;
+        }
+
+        .search-input {
+            display: none;
+            width: 150px;
+        }
+
+        .search-icon:hover + .search-input,
+        .search-input:hover {
+            display: block;
+        }

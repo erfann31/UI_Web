@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>صفحه ثبت نام</title>
+    <style>
+        .label_1 {
+            display: inline-block;
+            width: 164px;
+        }
+
+        .label_2 {
+            display: inline-block;
+            width: 64px;
+        }
+
+        input {
+            border-radius: 5px;
+        }
+
+        li {
+            padding-bottom: 5px;
+        }
+
+        .box {
+            border-color: red;
+            border-radius: 10px;
+            border-width: 3px;
+        }
+
+        .yellow_box {
+            background-color: yellow;
+            border: 2px solid black;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        button {
+            width: 100px;
+            background-color: white;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        .title {
+            border: 3px solid black;
+        }
+
+        .title h3 {
+            text-align: center;
+            margin: 2%;
+        }
+    </style>
+</head>
+
+<body dir="rtl" style="font-family: Calibri,d serif; text-align: right;">
+<div class="title">
+    <h3>صفحه ثبت نام</h3>
+</div>
+<form action="">
+    <fieldset class="box">
+        <legend class="yellow_box">اطلاعات شخصی</legend>
+        <ul style="list-style-type: none; margin-right: -3%; margin-top: 0;margin-bottom: 0;">
+            <li>
+                <label class="label_1" for="name">نام:</label>
+                <input type="text" id="name"/>
+            </li>
+            <li>
+                <label class="label_1" for="family">نام خانوادگی:</label>
+                <input type="text" id="family"/>
+            </li>
+            <li>
+                <label class="label_1" for="data">تاریخ تولد به میلادی</label>
+                <input type="date" name="data" id="data" style="width: 165px"/>
+            </li>
+            <li>
+                <label class="label_1" for="city">استان محل زندگی</label>
+                <select name="city" id="city" style="width: 170px; border-radius: 5px">
+                    <option value="Tehran">تهران</option>
+                    <option value="Tabriz">تبریز</option>
+                    <option value="Kordestan">کردستان</option>
+                    <option value="Zahedan">زاهدان</option>
+                    <option value="Shiraz">شیراز</option>
+                </select>
+            </li>
+            <li>
+                <label class="label_1" for="gender">جنسیت</label>
+                <input type="radio" name="sex" id="gender"/>زن
+                <input type="radio" name="sex" id="gender"/>مرد
+            </li>
+            <li>
+                <label class="label_1" for="favorite">علاقه مند به خرید محصولات:</label>
+                <input type="checkbox" name="digital" id="favorite"/> دیجیتالی
+                <input type="checkbox" name="home" id="favorite"/>خانه و آشپزخانه
+                <input type="checkbox" name="health" id="favorite"/>آرایشی بهداشتی
+                <input type="checkbox" name="industrial" id="favorite"/>صنعتی
+            </li>
+        </ul>
+    </fieldset>
+    <fieldset class="box" style="margin-top: 10px">
+        <legend class="yellow_box">نحوه تماس با شما</legend>
+        <ul style="list-style-type: none; margin-right: -3%; margin-top: 0;margin-bottom: 0">
+            <li>
+                <label class="label_2" for="username">نام کاربری:</label>
+                <input type="text" id="username"/>
+            </li>
+            <li>
+                <label class="label_2" for="password">رمزعبور:</label>
+                <input type="password" id="password"/>
+            </li>
+            <li>
+                <label class="label_2" for="phone_number">تلفن همراه:</label>
+                <input type="number" id="phone_number"/>
+            </li>
+            <li>
+                <label class="label_2" for="email">ایمیل</label>
+                <input type="email" id="email"/>
+            </li>
+            <li>
+                <div style="display: flex; align-items: center;">
+                    <label class="label_2" for="address">آدرس:</label>
+                    <textarea style="border-radius: 5px;" name="address" id="address" cols="32" rows="12"></textarea>
+                </div>
+            </li>
+
+        </ul>
+        <div style="float: left;">
+            <button type="submit">ارسال</button>
+            <button type="reset">پاک کردن فرم</button>
+        </div>
+    </fieldset>
+</form>
+</body>
+
+</html>
