@@ -1,5 +1,8 @@
 from django.shortcuts import render
 
 
-def index_view(request):
-    return render(request, 'index.html')
+def main_view(request):
+    return render(request, 'main.html')
+
+def atashfeshan_view(request):
+    return render(request, 'atashfeshan.html')

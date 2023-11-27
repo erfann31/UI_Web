@@ -8,7 +8,8 @@ from t8 import views
 
 urlpatterns = [
     # Your existing URL patterns
-    path('', views.index_view, name='index'),
+    path('', views.main_view, name='index'),
+    path('atashfeshan/', views.atashfeshan_view, name='atashfeshan'),
 ]
 
 if settings.DEBUG:
