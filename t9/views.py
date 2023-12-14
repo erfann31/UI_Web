@@ -93,8 +93,6 @@ def get_political_news(request):
     political_news = News.objects.filter(category='political').values(
         'title', 'short_title', 'category', 'short_content', 'content', 'dateOfcreate'
     )
-    # You can add more specific fields if required within the 'values' method
-
     political_news_list = list(political_news)
     return JsonResponse(political_news_list, safe=False)
 
@@ -130,10 +128,8 @@ def get_news_by_keyword(request):
 
 
 def update_short_titles(request):
-    # Retrieve news produced before 2014
     news_before_2014 = News.objects.filter(dateOfcreate__year__lt=2014)
 
-    # Update the short title for each news article
     for news in news_before_2014:
         news.short_title = 'News 2014'
         news.save()
@@ -142,7 +138,6 @@ def update_short_titles(request):
 
 
 def delete_sports_2014_news(request):
-    # Retrieve and delete news with short title 'News 2014' and in the 'sports' category
     News.objects.filter(short_title='News 2014', category='sports').delete()
 
     return HttpResponse("Sports news with short title 'News 2014' deleted successfully")
