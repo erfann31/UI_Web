@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     # 't8',
     't9',
+    't10',
 ]
 
 MIDDLEWARE = [

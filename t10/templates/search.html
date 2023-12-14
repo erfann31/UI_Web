@@ -1,0 +1,288 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'css/search_style.css' %}">
+    <title>جستجو</title>
+    <link rel="icon" type="image/jpg" href="{% static 'images/favicon.jpg' %}">
+</head>
+
+<body>
+<div class="popup-container" id="popup">
+    <div class="popup-title">
+        <h3>ورود به سایت</h3>
+        <a class="close-btn" onclick="closePopup()">
+            <h3 style="color: #3d1000">صفحه اصلی</h3>
+        </a>
+    </div>
+    <div>
+        <label>
+            <input
+                    class="textInput"
+                    type="text"
+                    style="margin-top: 50px"
+                    placeholder="ایمیل یا شماره موبایل"
+            />
+        </label>
+    </div>
+    <div>
+        <label>
+            <input class="textInput" type="password" placeholder="رمز عبور"/>
+        </label>
+    </div>
+    <div>
+        <button class="loginBtn">ورود</button>
+    </div>
+</div>
+<div>
+    <img class="ads" src="{% static 'images/ads.gif' %}" id="gif" alt="GIF"/>
+</div>
+<div class="navigator">
+    <ul class="nav">
+        <li>خانه</li>
+        <li>
+            اخبار
+            <ul class="sub-menu">
+                <li class="sub-menu-item">سیاسی</li>
+                <li class="sub-menu-item">اجتماعی</li>
+                <li class="sub-menu-item">
+                    ورزشی
+                    <ul class="sub-menu-2">
+                        <li class="sub-menu-item-2">فوتبال</li>
+                        <li class="sub-menu-item-2">والیبال</li>
+                        <li class="sub-menu-item-2">بسکتبال</li>
+                    </ul>
+                </li>
+                <li class="sub-menu-item">اقتصادی</li>
+            </ul>
+        </li>
+        <li>آرشیو</li>
+        <li>درباره ما</li>
+        <li>ارتباط با ما</li>
+        <li onclick="openPopup()">ورود به باشگاه خبرنگاران</li>
+        <li class="search-icon"></li>
+    </ul>
+</div>
+<div class="main">
+    <div class="context_column">
+        <div class="navBottom">
+            <button
+                    id="button-column2"
+                    class="nav-button first active"
+                    onclick="showColumn('column2')"
+            >
+                نگاه ویژه
+            </button>
+            <button
+                    id="button-column3"
+                    class="nav-button"
+                    onclick="showColumn('column3')"
+            >
+                پربازدید
+            </button>
+            <button
+                    id="button-column1"
+                    class="nav-button"
+                    onclick="showColumn('column1')"
+            >
+                دیدنی ها
+            </button>
+        </div>
+        <div class="contexts" id="column1" style="display: none">
+            <div class="box">
+                <a href="#">
+                    <img class="triangleImage" src="{% static 'images/malake.jpeg' %}" alt="malake"/>
+                    <p>(ویدئو) ملکه انگلیس به یک بچه فیل شیر داد</p>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#">
+                    <img class="triangleImage" src="{% static 'images/police.jpg' %}" alt="police"/>
+                    <p>
+                        (ویدئو) تعقیب و گریز پلیس با هامر سرقتی؛تلاش برای سرفت دو خودروی
+                        دیگر!
+                    </p>
+                </a>
+            </div>
+
+            <div class="box">
+                <a href="#">
+                    <img class="triangleImage" src="{% static 'images/akasi.jpg' %}" alt="akasi"/>
+                    <p>(تصاویر) برندگان مسابقه عکاسی از سگ‌ها در سال ۲۰۲۳</p>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#">
+                    <img class="triangleImage" src="{% static 'images/israel.jpg' %}" alt="isreal"/>
+                    <p>
+                        (تصاویر) اسرائيل اردوگاه جبالیا را روی سر صدها فلسطینی خراب کرد
+                    </p>
+                </a>
+            </div>
+
+            <div class="box last">
+                <a href="#">
+                    <img class="triangleImage" src="{% static 'images/koshti.jpg' %}" alt="koshti"/>
+                    <p>(ویدئو) مدرسه کشتی دختران؛تابوشکنی دختران</p>
+                </a>
+            </div>
+        </div>
+        <div class="contexts" id="column2">
+            <div class="box">
+                <a href="#">
+                    <img class="circularImage" src="{% static 'images/gid.jpg' %}" alt="gid"/>
+                    <p>
+                        امریکا، ایران و خطر یک جنگ گسترده‌تر در خاورمیانه؟
+                        <br/>
+                        گیدئون راچمن
+                    </p>
+                </a>
+            </div>
+
+            <div class="box">
+                <a href="#">
+                    <img class="circularImage" src="{% static 'images/pol.jfif' %}" alt="pol"/>
+                    <p>
+                        به این دلایل جنگ زمینی اسرائيل در غزه خوب پیش نخواهد رفت
+                        <br/>
+                        پل راجرز
+                    </p>
+                </a>
+            </div>
+            <div class="box">
+                <a href="#">
+                    <img class="circularImage" src="{% static 'images/arash.jpg' %}" alt="arash"/>
+                    <p>
+                        ترس و اضطراب می‌تواند کمک کند؛ چگونه از آن به نفع خود استفاده
+                        کنیم؟
+                        <br/>
+                        آرش جوانبخت
+                    </p>
+                </a>
+            </div>
+
+            <div class="box last">
+                <a href="#">
+                    <img class="circularImage" src="{% static 'images/hamid.jpg' %}" alt="hamid"/>
+                    <p>
+                        چگونه غرب در تلاش برای «اختراع مجدد اسرائيل» است؟
+                        <br/>
+                        حمید دباشی
+                    </p>
+                </a>
+            </div>
+        </div>
+        <div class="contexts" id="column3" style="display: none">
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>سپهر حیدری یک سال محروم شد.</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>توضیح رییس دانشگاه تهران درباره درگیری با دانشجویان</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>وام مسکن ایثارگران 600 میلیون تومان شد</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>اختراع شگفت انگیز دانشمندان ایرانی در آمریکا</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>آمریکا در تله انفجاری غزه چه خواهد کرد؟</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>پشت پرده پام 300 میلیونی بانک ملی</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>رتبه آخر پرسپولیس در آسیا، کمترین فرصت گل</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>این پرسپولیسی مرد اول سینمای ایران شد</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>گران ترین ساعت دنیا به رونالدو رسید</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>طوفان برقی قدرتمند</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>جنگ خندق در قرن 21</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>پیش بینی قیمت بیت کوین</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>خداحافظی حسن یزدانی از کشتی</p>
+                </a>
+            </div>
+            <div class="onlyTextBox">
+                <a href="#">
+                    <p>ایران باید با طالبان چه کند؟</p>
+                </a>
+            </div>
+            <div class="onlyTextBox last">
+                <a href="#">
+                    <p>چرا رشد اقتصادی چین منافع آمریکا را تهدید خواهد کرد؟</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="search-input">
+            <label class="label" for="search">جستجو در میان اخبار...</label>
+            <input style="width: 250px; height: 25px" type="text" id="search">
+        </div>
+        <div>
+            <ul id="news-list">
+                <li class="list-search-item">دونالد ترامب بزركترين خطر براى جهان در سال ٢٠٢٢ خواهد بود.</li>
+                <li class="list-search-item">واکنش باهنر به رد صلاحیت پزشکیان، خردمندانه برخورد نکردند.</li>
+                <li class="list-search-item">انتقاد ابوترایی فرد، امام جمعه موقت تهران از رد صلاحیت ها</li>
+                <li class="list-search-item">حماس از بیمارستان الشفا به عنوان مرکز فرماندهی استفاده میکند.</li>
+                <li class="list-search-item">قیمت مسکن در ارزانترین منطقه تهران</li>
+                <li class="list-search-item">قیمت جدید خوردروهای وارداتی</li>
+                <li class="list-search-item">جنجالی که یک عکس به پا کرد، ماجرای اگزوز خودروی برقی ایرانی</li>
+                <li class="list-search-item"> فرمول محاسبه سنوات و عیدی ۱۴۰۲</li>
+                <li class="list-search-item">ترکیب ایران مقابل کالدونیا مشخص شد.</li>
+                <li class="list-search-item">شوک بزرگ به نکوتام پیش از دربی پایتخت</li>
+                <li class="list-search-item">بزرگ ترین غایب پرسپولیس در دیدار با النصر</li>
+                <li class="list-search-item">رونالدو صد و بیست و هشتمین گلش را زد.</li>
+                <li class="list-search-item">کشف یک موزاییک باستانی با طرحی شگفت انگیز در ترکیه</li>
+                <li class="list-search-item">افتتاح بزرگترین نیروگاه برق خورشیدی جهان در امارات</li>
+                <li class="list-search-item">آلودگی هوای تهران یک شنبه شدیدتر می شود.</li>
+                <li class="list-search-item">این سینا برای امروز ما چه حرفی برای گفتن دارد؟</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/accordion.js' %}"></script>
+<script src="{% static 'js/carousel.js' %}"></script>
+<script src="{% static 'js/navigator.js' %}"></script>
+<script src="{% static 'js/filter.js' %}"></script>
+</body>
+</html>

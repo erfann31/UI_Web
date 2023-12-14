@@ -5,14 +5,16 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
-from t8 import views as t8_views
+# from t8 import views as t8_views
 from t9 import views as t9_views
+from t10 import views as t10_views
 
 urlpatterns = [
     # Your existing URL patterns
-    path('', t8_views.main_view, name='index'),
+    path('', t10_views.main_view, name='index'),
+    path('search/', t10_views.search_view, name='search'),
     path('admin/', admin.site.urls),
-    path('atashfeshan/', t8_views.atashfeshan_view, name='atashfeshan'),
+    # path('atashfeshan/', t8_views.atashfeshan_view, name='atashfeshan'),
     path('create_data/', t9_views.create_data, name='create_data'),
     path('2/', t9_views.get_political_news, name='2'),
     path('3/', t9_views.get_filtered_journalists, name='3'),
