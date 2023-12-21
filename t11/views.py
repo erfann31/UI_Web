@@ -26,6 +26,7 @@ def delete_data(request):
     ContextColumn.objects.all().delete()
     NavButton.objects.all().delete()
     Box.objects.all().delete()
+    Ad.objects.all().delete()
     return HttpResponse("Data deleted successfully")
 
 
