@@ -8,12 +8,25 @@ def main_view(request):
     all_categories = NewsCategory.objects.all()
     carousel_items = CarouselItem.objects.all()
     columns = ContextColumn.objects.all()
+    menu_items = MenuItem.objects.filter(parent__isnull=True)
 
-    return render(request, 'main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns})
+    return render(request, 'main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns, 'menu_items': menu_items, })
 
 
 def search_view(request):
     return render(request, 'search.html')
+
+
+def delete_data(request):
+    MenuItem.objects.all().delete()
+    CarouselItem.objects.all().delete()
+    Context.objects.all().delete()
+    NewsItem.objects.all().delete()
+    NewsCategory.objects.all().delete()
+    ContextColumn.objects.all().delete()
+    NavButton.objects.all().delete()
+    Box.objects.all().delete()
+    return HttpResponse("Data deleted successfully")
 
 
 def create_data(request):
@@ -23,19 +36,18 @@ def create_data(request):
     archive = MenuItem.objects.create(title='آرشیو')
     about_us = MenuItem.objects.create(title='درباره ما')
     contact_us = MenuItem.objects.create(title='ارتباط با ما')
-    login = MenuItem.objects.create(title='ورود به باشگاه خبرنگاران', link='/login')
-    search = MenuItem.objects.create(title='', link='/search')
+    login = MenuItem.objects.create(title='ورود به باشگاه خبرنگاران', onclick_function='openPopup()')
+    search = MenuItem.objects.create(title='', link='/search', class_name='search-icon')
 
     # Create submenu items and relate them to their parent items
-    news_sub_menu = MenuItem.objects.create(title='اخبار', parent=news)
-    political = MenuItem.objects.create(title='سیاسی', parent=news_sub_menu)
-    social = MenuItem.objects.create(title='اجتماعی', parent=news_sub_menu)
-    sports = MenuItem.objects.create(title='ورزشی', parent=news_sub_menu)
-    sports_sub_menu = MenuItem.objects.create(title='ورزشی', parent=sports)
-    football = MenuItem.objects.create(title='فوتبال', parent=sports_sub_menu)
-    volleyball = MenuItem.objects.create(title='والیبال', parent=sports_sub_menu)
-    basketball = MenuItem.objects.create(title='بسکتبال', parent=sports_sub_menu)
-    economic = MenuItem.objects.create(title='اقتصادی', parent=news_sub_menu)
+    political = MenuItem.objects.create(title='سیاسی', parent=news)
+    social = MenuItem.objects.create(title='اجتماعی', parent=news)
+    sports = MenuItem.objects.create(title='ورزشی', parent=news)
+    economic = MenuItem.objects.create(title='اقتصادی', parent=news)
+    football = MenuItem.objects.create(title='فوتبال', parent=sports)
+    volleyball = MenuItem.objects.create(title='والیبال', parent=sports)
+    basketball = MenuItem.objects.create(title='بسکتبال', parent=sports)
+    economic = MenuItem.objects.create(title='اقتصادی', parent=sports)
     # ----------------------------------------------
     # Create ContextColumns
     column1 = ContextColumn.objects.create(column_id='column1')

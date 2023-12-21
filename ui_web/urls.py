@@ -18,6 +18,7 @@ urlpatterns = [
     # path('atashfeshan/', t8_views.atashfeshan_view, name='atashfeshan'),
     # path('create_data/', t9_views.create_data, name='create_data'),
     path('create_data/', t11_views.create_data, name='create_data'),
+    path('delete/', t11_views.delete_data, name='delete_data'),
     # path('2/', t9_views.get_political_news, name='2'),
     # path('3/', t9_views.get_filtered_journalists, name='3'),
     # path('4/', t9_views.get_news_by_keyword, name='4'),
