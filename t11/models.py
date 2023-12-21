@@ -10,24 +10,44 @@ class MenuItem(models.Model):
         return self.title
 
 
+from django.db import models
+
+
+class ContextColumn(models.Model):
+    column_id = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.column_id
+
+
+class NavButton(models.Model):
+    column = models.ForeignKey(ContextColumn, on_delete=models.CASCADE, related_name='buttons')
+    button_id = models.CharField(max_length=50)
+    button_text = models.CharField(max_length=100)
+    is_active = models.BooleanField(default=False)
+    onclick_function = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.button_text
+
+
 class Context(models.Model):
-    # Represents a context column
-    column_id = models.CharField(max_length=20, unique=True)
+    column = models.ForeignKey(ContextColumn, on_delete=models.CASCADE, related_name='contexts')
+    context_id = models.CharField(max_length=50)
+    display_style = models.CharField(max_length=20, default='none')
 
     def __str__(self):
-        return f"Context - {self.column_id}"
+        return self.context_id
 
 
-class ContextItem(models.Model):
-    # Represents individual items within each context column
-    context = models.ForeignKey(Context, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='context_images/')
-    title = models.CharField(max_length=200)
-    author = models.CharField(max_length=100)
-    link = models.URLField()
+class Box(models.Model):
+    context = models.ForeignKey(Context, on_delete=models.CASCADE, related_name='boxes')
+    box_type = models.CharField(max_length=20)  # 'circularImage', 'triangleImage', or 'onlyTextBox'
+    image = models.ImageField(upload_to='images/', null=True, blank=True)
+    text = models.TextField()
 
     def __str__(self):
-        return self.title
+        return self.box_type + self.text
 
 
 class CarouselItem(models.Model):
