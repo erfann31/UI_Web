@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from t11.models import MenuItem, Context, CarouselItem, NewsCategory, NewsItem, ContextColumn, NavButton, Box
+from t11.models import Ad, MenuItem, Context, CarouselItem, NewsCategory, NewsItem, ContextColumn, NavButton, Box
 
 
 def main_view(request):
@@ -9,8 +9,8 @@ def main_view(request):
     carousel_items = CarouselItem.objects.all()
     columns = ContextColumn.objects.all()
     menu_items = MenuItem.objects.filter(parent__isnull=True)
-
-    return render(request, 'main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns, 'menu_items': menu_items, })
+    ad = Ad.objects.first()
+    return render(request, 'main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns, 'menu_items': menu_items, 'ad': ad, })
 
 
 def search_view(request):
@@ -30,6 +30,8 @@ def delete_data(request):
 
 
 def create_data(request):
+    # Create the Ad
+    ad = Ad.objects.create(image_path='images/ads.gif')
     # Create the main menu items
     home = MenuItem.objects.create(title='خانه')
     news = MenuItem.objects.create(title='اخبار')

@@ -37,87 +37,98 @@
     </div>
 </div>
 <div>
-    <img class="ads" src="{% static 'images/ads.gif' %}" id="gif" alt="GIF"/>
+    {% if ad %}
+        <img class="ads" src="{% static ad.image_path %}" id="gif" alt="GIF"/>
+    {% else %}
+        <p>No ad available</p>
+    {% endif %}
 </div>
 <div class="navigator">
     <ul class="nav">
-        <li>خانه</li>
-        <li>
-            اخبار
-            <ul class="sub-menu">
-                <li class="sub-menu-item">سیاسی</li>
-                <li class="sub-menu-item">اجتماعی</li>
-                <li class="sub-menu-item">
-                    ورزشی
-                    <ul class="sub-menu-2">
-                        <li class="sub-menu-item-2">فوتبال</li>
-                        <li class="sub-menu-item-2">والیبال</li>
-                        <li class="sub-menu-item-2">بسکتبال</li>
+        {% for item in menu_items %}
+            <li>
+                {% if item.link %}
+                    <a href="{{ item.link }}" {% if item.onclick_function %} onclick="{{ item.onclick_function }}" {% endif %} {% if item.class_name %} class="{{ item.class_name }}" {% endif %}>{{ item.title }}</a>
+                {% else %}
+                    <span {% if item.onclick_function %} onclick="{{ item.onclick_function }}" {% endif %} {% if item.class_name %} class="{{ item.class_name }}" {% endif %}>{{ item.title }}</span>
+                {% endif %}
+
+                {% if item.children.all %}
+                    <ul class="sub-menu">
+                        {% for child in item.children.all %}
+                            <li class="sub-menu-item">
+                                {% if child.link %}
+                                    <a href="{{ child.link }}" {% if child.onclick_function %} onclick="{{ child.onclick_function }}" {% endif %} {% if child.class_name %} class="{{ child.class_name }}" {% endif %}>{{ child.title }}</a>
+                                {% else %}
+                                    <span {% if child.onclick_function %} onclick="{{ child.onclick_function }}" {% endif %} {% if child.class_name %} class="{{ child.class_name }}" {% endif %}>{{ child.title }}</span>
+                                {% endif %}
+
+                                {% if child.children.all %}
+                                    <ul class="sub-menu-2">
+                                        {% for sub_child in child.children.all %}
+                                            <li class="sub-menu-item-2">
+                                                {{ sub_child.title }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
                     </ul>
-                </li>
-                <li class="sub-menu-item">اقتصادی</li>
-            </ul>
-        </li>
-        <li>آرشیو</li>
-        <li>درباره ما</li>
-        <li>ارتباط با ما</li>
-        <li onclick="openPopup()">ورود به باشگاه خبرنگاران</li>
-        <li class="search-icon" onclick="window.location.href='/search'"></li>
+                {% endif %}
+            </li>
+        {% endfor %}
     </ul>
 </div>
 <div class="main">
-<div class="context_column">
-    <div class="navBottom">
-        {% for column in columns %}
-            {% for button in column.buttons.all %}
-                <button id="{{ button.button_id }}" class="nav-button{% if button.is_active %} first active{% endif %}"
-                        onclick="{{ button.onclick_function }}">
-                    {{ button.button_text }}
-                </button>
+    <div class="context_column">
+        <div class="navBottom">
+            {% for column in columns %}
+                {% for button in column.buttons.all %}
+                    <button id="{{ button.button_id }}" class="nav-button{% if button.is_active %} first active{% endif %}"
+                            onclick="{{ button.onclick_function }}">
+                        {{ button.button_text }}
+                    </button>
+                {% endfor %}
             {% endfor %}
-        {% endfor %}
-    </div>
-
-    <div class="contexts-container">
-        {% for column in columns %}
-            {% if forloop.first or column.contexts.all %}
-                <div class="contexts{% if forloop.first %} active{% endif %}" id="{{ column.column_id }}"
-                     style="display: {% if forloop.first %}flex{% else %}none{% endif %};">
-                    {% for context in column.contexts.all %}
-                        {% if context.boxes.all %}
-                            {% for box in context.boxes.all %}
-                                <div class="box">
-                                    {% if box.box_type == 'triangleImage' %}
-                                        <a href="#">
-                                            <img class="triangleImage" src="{% static box.image %}"
-                                                 alt="{{ box.image.alt }}"/>
-                                            <p>{{ box.text | safe }}</p>
-                                        </a>
-                                    {% elif box.box_type == 'circularImage' %}
-                                        <a href="#">
-                                            <img class="circularImage" src="{% static box.image %}"
-                                                 alt="{{ box.image.alt }}"/>
-                                            <p>{{ box.text | safe }}</p>
-                                        </a>
-                                    {% elif box.box_type == 'onlyTextBox' %}
-                                        <div class="onlyTextBox">
+        </div>
+        <div class="contexts-container">
+            {% for column in columns %}
+                {% if forloop.first or column.contexts.all %}
+                    <div class="contexts{% if forloop.first %} active{% endif %}" id="{{ column.column_id }}"
+                         style="display: {% if forloop.first %}flex{% else %}none{% endif %};">
+                        {% for context in column.contexts.all %}
+                            {% if context.boxes.all %}
+                                {% for box in context.boxes.all %}
+                                    <div class="box">
+                                        {% if box.box_type == 'triangleImage' %}
                                             <a href="#">
+                                                <img class="triangleImage" src="{% static box.image %}"
+                                                     alt="{{ box.image.alt }}"/>
                                                 <p>{{ box.text | safe }}</p>
                                             </a>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endfor %}
+                                        {% elif box.box_type == 'circularImage' %}
+                                            <a href="#">
+                                                <img class="circularImage" src="{% static box.image %}"
+                                                     alt="{{ box.image.alt }}"/>
+                                                <p>{{ box.text | safe }}</p>
+                                            </a>
+                                        {% elif box.box_type == 'onlyTextBox' %}
+                                            <div class="onlyTextBox">
+                                                <a href="#">
+                                                    <p>{{ box.text | safe }}</p>
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
     </div>
-</div>
-
-
-
     <div class="image-container">
         {% for item in carousel_items %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
@@ -132,8 +143,6 @@
             {% endif %}
         {% endfor %}
     </div>
-
-
 </div>
 {% for category in all_categories %}
     <div class="accordion">
