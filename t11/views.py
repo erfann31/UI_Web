@@ -58,56 +58,57 @@ def create_data(request):
     column3 = ContextColumn.objects.create(column_id='column3')
 
     # Create NavButtons for each column
+
     button_column1 = NavButton.objects.create(
         column=column1,
         button_id='button-column1',
-        button_text='دیدنی ها',
-        is_active=True,
-        onclick_function='showColumn("column1")'
+        button_text='نگاه ویژه',
+        onclick_function='showColumn("column1")',
+        is_active = True,
     )
     button_column2 = NavButton.objects.create(
         column=column2,
         button_id='button-column2',
-        button_text='نگاه ویژه',
+        button_text='پربازدید',
         onclick_function='showColumn("column2")'
     )
     button_column3 = NavButton.objects.create(
         column=column3,
         button_id='button-column3',
-        button_text='پربازدید',
+        button_text='دیدنی ها',
         onclick_function='showColumn("column3")'
     )
 
     # Create Contexts for each column
-    context_column1 = Context.objects.create(column=column1, context_id='column1', display_style='none')
-    context_column2 = Context.objects.create(column=column2, context_id='column2')
+    context_column1 = Context.objects.create(column=column1, context_id='column1')
+    context_column2 = Context.objects.create(column=column2, context_id='column2', display_style='none')
     context_column3 = Context.objects.create(column=column3, context_id='column3', display_style='none')
 
     # Create Boxes for each context
     context_column1_items = [
         Box.objects.create(
-            context=context_column1,
+            context=context_column3,
             box_type='triangleImage',
             image='images/malake.jpeg',
             text='(ویدئو) ملکه انگلیس به یک بچه فیل شیر داد',
         ),
         Box.objects.create(
-            context=context_column1,
+            context=context_column3,
             box_type='triangleImage',
             image='images/police.jpg',
             text='(ویدئو) تعقیب و گریز پلیس با هامر سرقتی؛تلاش برای سرفت دو خودروی دیگر!',
         ), Box.objects.create(
-            context=context_column1,
+            context=context_column3,
             box_type='triangleImage',
             image='images/akasi.jpg',
             text='(تصاویر) برندگان مسابقه عکاسی از سگ‌ها در سال ۲۰۲۳',
         ), Box.objects.create(
-            context=context_column1,
+            context=context_column3,
             box_type='triangleImage',
             image='images/israel.jpg',
             text='(تصاویر) اسرائيل اردوگاه جبالیا را روی سر صدها فلسطینی خراب کرد',
         ), Box.objects.create(
-            context=context_column1,
+            context=context_column3,
             box_type='triangleImage',
             image='images/koshti.jpg',
             text='(ویدئو) مدرسه کشتی دختران؛تابوشکنی دختران',
@@ -116,23 +117,23 @@ def create_data(request):
 
     context_column2_items = [
         Box.objects.create(
-            context=context_column2,
+            context=context_column1,
             box_type='circularImage',
             image='images/gid.jpg',
             text='امریکا، ایران و خطر یک جنگ گسترده‌تر در خاورمیانه؟<br>گیدئون راچمن',
         ),
         Box.objects.create(
-            context=context_column2,
+            context=context_column1,
             box_type='circularImage',
             image='images/pol.jfif',
             text='به این دلایل جنگ زمینی اسرائيل در غزه خوب پیش نخواهد رفت<br>پل راجرز',
         ), Box.objects.create(
-            context=context_column2,
+            context=context_column1,
             box_type='circularImage',
             image='images/arash.jpg',
             text='ترس و اضطراب می‌تواند کمک کند؛ چگونه از آن به نفع خود استفاده کنیم؟<br>آرش جوانبخت',
         ), Box.objects.create(
-            context=context_column2,
+            context=context_column1,
             box_type='circularImage',
             image='images/hamid.jpg',
             text='چگونه غرب در تلاش برای «اختراع مجدد اسرائیل» است؟<br>حمید دباشی',
@@ -141,64 +142,64 @@ def create_data(request):
 
     context_column3_items = [
         Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='سپهر حیدری یک سال محروم شد.',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='توضیح رییس دانشگاه تهران درباره درگیری با دانشجویان',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='وام مسکن ایثارگران 600 میلیون تومان شد',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='اختراع شگفت انگیز دانشمندان ایرانی در آمریکا',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='آمریکا در تله انفجاری غزه چه خواهد کرد؟',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='پشت پرده پام 300 میلیونی بانک ملی',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             image='',
             box_type='onlyTextBox',
             text='رتبه آخر پرسپولیس در آسیا، کمترین فرصت گل',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='این پرسپولیسی مرد اول سینمای ایران شد',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='گران ترین ساعت دنیا به رونالدو رسید',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='طوفان برقی قدرتمند',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='جنگ خندق در قرن 21',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='پیش بینی قیمت بیت کوین',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='خداحافظی حسن یزدانی از کشتی',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='ایران باید با طالبان چه کند؟',
         ), Box.objects.create(
-            context=context_column3,
+            context=context_column2,
             box_type='onlyTextBox',
             text='چرا رشد اقتصادی چین منافع آمریکا را تهدید خواهد کرد؟',
         ),
