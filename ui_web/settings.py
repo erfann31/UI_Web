@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.admin',
 
     # 't8',
-    't9',
-    't10',
+    # 't9',
+    # 't10',
+    't11',
 ]
 
 MIDDLEWARE = [
