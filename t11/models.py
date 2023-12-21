@@ -5,6 +5,8 @@ class MenuItem(models.Model):
     title = models.CharField(max_length=100)
     link = models.CharField(max_length=100, blank=True, null=True)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name='children', blank=True, null=True)
+    onclick_function = models.CharField(max_length=100)
+    class_name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
