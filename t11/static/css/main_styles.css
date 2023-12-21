@@ -267,13 +267,29 @@ body {
 }
 
 .search-icon {
+    margin-right: -10px;
+    margin-left: -10px;
     cursor: pointer;
-    background-position: center;
     background-image: url('search.png');
-    background-size: 40px;
-    background-repeat: no-repeat;
-    width: 30px;
-    padding-left: 30px;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Makes the background circular */
+    display: inline-flex; /* Ensure the circular background takes the shape of the content */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Ensure the icon stays within the circular boundary */
+}
+.search {
+    cursor: pointer;
+    background-image: url('search.png');
+    background-size: cover;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+    width: 20px;
+    justify-content: center;
+    overflow: visible;
 }
 
 .search-input {
