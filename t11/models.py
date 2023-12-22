@@ -19,9 +19,6 @@ class MenuItem(models.Model):
         return self.title
 
 
-from django.db import models
-
-
 class ContextColumn(models.Model):
     column_id = models.CharField(max_length=50)
 
@@ -51,7 +48,7 @@ class Context(models.Model):
 
 class Box(models.Model):
     context = models.ForeignKey(Context, on_delete=models.CASCADE, related_name='boxes')
-    box_type = models.CharField(max_length=20)  # 'circularImage', 'triangleImage', or 'onlyTextBox'
+    box_type = models.CharField(max_length=20)
     image = models.ImageField(upload_to='images/', null=True, blank=True)
     text = models.TextField()
 
