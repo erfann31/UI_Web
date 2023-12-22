@@ -33,6 +33,7 @@ def delete_data(request):
 def create_data(request):
     # Create the Ad
     ad = Ad.objects.create(image_path='images/ads.gif')
+    # ----------------------------------------------
     # Create the main menu items
     home = MenuItem.objects.create(title='خانه')
     news = MenuItem.objects.create(title='اخبار')
@@ -58,7 +59,6 @@ def create_data(request):
     column3 = ContextColumn.objects.create(column_id='column3')
 
     # Create NavButtons for each column
-
     button_column1 = NavButton.objects.create(
         column=column1,
         button_id='button-column1',
@@ -235,24 +235,20 @@ def create_data(request):
     NewsItem.objects.create(category=category_political, title='واکنش باهنر به رد صلاحیت پزشکان، خردمندانه برخورد نکردند.')
     NewsItem.objects.create(category=category_political, title='انتقاد ابوترایی فرد، امام جمعه موقت تهران از رد صلاحیت ها')
     NewsItem.objects.create(category=category_political, title='حماس از بیمارستان الشفا به عنوان مرکز فرماندهی استفاده میکند.')
-    # Create other news items for political category
 
     NewsItem.objects.create(category=category_economic, title='قیمت مسکن در ارزانترین منطقه تهران')
     NewsItem.objects.create(category=category_economic, title='قیمت جدید خوردروهای وارداتی')
     NewsItem.objects.create(category=category_economic, title='جنجالی که یک عکس به پا کرد، ماجرای اگزوز خودروی برقی ایرانی')
     NewsItem.objects.create(category=category_economic, title='فرمول محاسبه سنوات و عیدی ۱۴۰۲')
-    # Create other news items for economic category
 
     NewsItem.objects.create(category=category_sports, title='ترکیب ایران مقابل کالدونیا مشخص شد.')
     NewsItem.objects.create(category=category_sports, title='شوک بزرگ به نکونام پیش از دربی پایتخت')
     NewsItem.objects.create(category=category_sports, title='بزرگ ترین غایب پرسپولیس در دیدار با النصر')
     NewsItem.objects.create(category=category_sports, title='رونالدو صد و بیست و هشتمین گلش را زد.')
-    # Create other news items for economic sport
 
     NewsItem.objects.create(category=category_cultural, title='کشف یک موزاییک باستانی با طرحی شگفت انگیز در ترکیه')
     NewsItem.objects.create(category=category_cultural, title='افتتاح بزرگترین نیروگاه برق خورشیدی جهان در امارات')
     NewsItem.objects.create(category=category_cultural, title='آلودگی هوای تهران یک شنبه شدیدتر می شود.')
     NewsItem.objects.create(category=category_cultural, title='این سینا برای امروز ما چه حرفی برای گفتن دارد؟')
-    # Create other news items for economic cultural
 
     return HttpResponse("Data creation process completed successfully")
