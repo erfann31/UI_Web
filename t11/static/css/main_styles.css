@@ -3,10 +3,14 @@
     direction: rtl;
 }
 
+p, a, h1, h2, h3, h4, h5, h6, .nav-button, li,.label {
+    color: white;
+}
 body {
-    background-color: #e4d3be;
+    background-color: #252525;
     margin: 0;
     padding: 0;
+    font-family: 'vazir', sans-serif;
 }
 
 .main {
@@ -17,10 +21,9 @@ body {
 
 .context_column {
     width: 300px !important;
-
     padding: 4px;
     display: flex;
-    border-top: #3d1000 2px solid;
+    border-top: #6aafff 2px solid;
     flex-direction: column;
 }
 
@@ -32,7 +35,7 @@ body {
 }
 
 .box:hover {
-    background-color: #a38f8f;
+    background-color: #001c3d;
 }
 
 .box a p {
@@ -62,13 +65,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 12px;
-    border: 20px solid #471c0d;
+    border: 20px solid #6aafff;
     background-color: #fff;
     text-align: center;
 }
 
 .popup-container a {
-    color: #471c0d;
+    color: #6aafff;
     text-decoration: underline;
     cursor: pointer;
 }
@@ -76,7 +79,7 @@ body {
 .loginBtn {
     float: left;
     color: #fff;
-    background-color: #471c0d;
+    background-color: #6aafff;
     width: 60px;
     height: 30px;
     margin-left: 4px;
@@ -113,13 +116,13 @@ body {
 
 h3 {
     text-align: center;
-    color: #3d1000;
+    color: #6aafff;
 }
 
 .box {
     display: flex;
     padding: 1% 0;
-    border-bottom: #471c0d solid 2px;
+    border-bottom: #6aafff solid 2px;
 }
 
 .triangleImage {
@@ -157,7 +160,7 @@ img:hover {
     border-style: hidden;
     border-right-style: solid;
     border-right-width: 1px;
-    border-right-color: rgb(0, 0, 0);
+    border-right-color: white;
     text-align: right;
     cursor: pointer;
     position: relative;
@@ -167,7 +170,7 @@ img:hover {
 .navigator {
     margin-right: 0;
     padding-right: 0;
-    background-color: brown;
+    background-color: #6aafff;
     text-align: right;
 }
 
@@ -229,12 +232,12 @@ img:hover {
     position: absolute;
     top: 100%;
     margin-right: -10px;
-    background-color: #483112;
+    background-color: #6aafff;
 }
 
 .nav li:hover {
     color: black;
-    background-color: burlywood;
+    background-color: white;
 }
 
 .nav li:hover .sub-menu {
@@ -252,7 +255,7 @@ img:hover {
     position: absolute;
     top: 0;
     right: 100%;
-    background-color: #89673a;
+    background-color: #001c3d;
 }
 
 .sub-menu-item:hover .sub-menu-2 {
@@ -315,7 +318,7 @@ img:hover {
 }
 
 .onlyTextBox:hover {
-    background-color: #a38f8f;
+    background-color: #001c3d;
 }
 
 .onlyTextBox a p {
@@ -334,7 +337,7 @@ img:hover {
 }
 
 .nav-button.active {
-    color: #471c0d;
+    color: #6aafff;
     font-weight: bold;
 }
 
@@ -349,12 +352,11 @@ img:hover {
 
 .accordion {
     padding: 0 16%;
-    padding-top: 20px;
     margin-bottom: 10px;
 }
 
 .accordion-header {
-    background-color: brown;
+    background-color: #6aafff;
     padding: 10px;
     position: relative;
     color: whitesmoke;
@@ -377,9 +379,8 @@ img:hover {
     position: relative;
     padding-left: 8px;
 }
-
 .accordion-header.active {
-    background-color: #a64f44;
+    background-color: #6aafff;
 }
 
 .accordion-content {

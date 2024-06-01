@@ -10,7 +10,7 @@ def main_view(request):
     columns = ContextColumn.objects.all()
     menu_items = MenuItem.objects.filter(parent__isnull=True)
     ad = Ad.objects.first()
-    return render(request, 'main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns, 'menu_items': menu_items, 'ad': ad, })
+    return render(request, '../templates/main.html', {'all_categories': all_categories, 'carousel_items': carousel_items, 'columns': columns, 'menu_items': menu_items, 'ad': ad, })
 
 
 def search_view(request):
