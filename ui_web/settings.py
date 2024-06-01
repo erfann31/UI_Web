@@ -16,6 +16,7 @@ STATICFILES_DIRS = [
 # Application definition
 
 INSTALLED_APPS = [
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -23,10 +24,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
-    # 't8',
+    't8',
     # 't9',
-    # 't10',
-    't11',
+    't10',
+    # 't11',
 ]
 
 MIDDLEWARE = [

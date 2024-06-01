@@ -1,9 +1,12 @@
 * {
+  font-family: 'vazir', sans-serif;
   direction: rtl;
 }
-
+p, a, h1, h2, h3, h4, h5, h6, .nav-button,li {
+  color: white;
+}
 body {
-  background-color: #e4d3be;
+  background-color: #252525;
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -20,7 +23,7 @@ body {
   width: 400px;
   padding: 4px;
   display: flex;
-  border-top: #3d1000 2px solid;
+  border-top: #6aafff 2px solid;
   margin-top: 20px;
   flex-direction: column;
 }
@@ -38,13 +41,13 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 12px;
-  border: 20px solid #471c0d;
+  border: 20px solid #6aafff;
   background-color: #fff;
   text-align: center;
 }
 
 .popup-container a {
-  color: #471c0d;
+  color: #6aafff;
   text-decoration: underline;
   cursor: pointer;
 }
@@ -52,7 +55,7 @@ body {
 .loginBtn {
   float: left;
   color: #fff;
-  background-color: #471c0d;
+  background-color: #6aafff;
   width: 60px;
   height: 30px;
   margin-left: 4px;
@@ -86,13 +89,13 @@ body {
 
 h3 {
   text-align: center;
-  color: #3d1000;
+  color: #6aafff;
 }
 
 .box {
   display: flex;
   padding: 1% 0;
-  border-bottom: #471c0d solid 2px;
+  border-bottom: #6aafff solid 2px;
 }
 
 .triangleImage {
@@ -108,7 +111,7 @@ h3 {
 }
 
 .box:hover {
-  background-color: #a38f8f;
+  background-color: #001c3d;
 }
 
 .box a p {
@@ -131,7 +134,7 @@ img:hover {
   height: 80px;
   width: 40%;
   border-radius: 100%;
-  border: #471c0d solid 2px;
+  border: #6aafff solid 2px;
 }
 
 body {
@@ -159,7 +162,7 @@ body {
 .navigator {
   margin-right: 0;
   padding-right: 0;
-  background-color: brown;
+  background-color: #6aafff;
   text-align: right;
 }
 
@@ -221,12 +224,11 @@ body {
   position: absolute;
   top: 100%;
   margin-right: -10px;
-  background-color: #483112;
+  background-color: #6aafff;
 }
 
 .nav li:hover {
-  color: black;
-  background-color: burlywood;
+  background-color: #001c3d;
 }
 
 .nav li:hover .sub-menu {
@@ -244,7 +246,7 @@ body {
   position: absolute;
   top: 0;
   right: 100%;
-  background-color: #89673a;
+  background-color: #001c3d;
 }
 
 .sub-menu-item:hover .sub-menu-2 {
@@ -289,7 +291,7 @@ body {
 }
 
 .onlyTextBox:hover {
-  background-color: #a38f8f;
+  background-color: #001c3d;
 }
 
 .onlyTextBox a p {
@@ -309,7 +311,7 @@ body {
 }
 
 .nav-button.active {
-  color: #471c0d;
+  color: #6aafff;
   font-weight: bold;
 }
 
@@ -328,7 +330,7 @@ body {
   margin-bottom: 10px;
 }
 .accordion-header {
-  background-color: brown;
+  background-color: #6aafff;
   padding: 10px;
   position: relative;
   color: whitesmoke;
@@ -350,7 +352,7 @@ body {
   padding-left: 8px;
 }
 .accordion-header.active {
-  background-color: #a64f44;
+  background-color: #6aafff;
 }
 .accordion-content {
   max-height: 0;
