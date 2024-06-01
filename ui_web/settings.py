@@ -8,7 +8,6 @@ SECRET_KEY = 'django-insecure-*o!&ua5%48_r^8+s!wcl22@c_*s+6qe-4@@bwr@^+3@w-ug36=
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 't11', 'static'),
@@ -23,11 +22,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'corsheaders',
 
     # 't8',
     # 't9',
     # 't10',
+    'corsheaders',
     'drf_yasg',
     't11',
 ]
@@ -40,6 +39,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+
 ]
 
 STATIC_URL = '/static/'
@@ -97,5 +98,7 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
